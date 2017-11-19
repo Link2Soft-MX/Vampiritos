@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Vampiritos</title>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    </head>
+    <body>
+		<div data-role="page" id="principal" data-theme="b">
+			<div role="main" class="ui-content">
+				<div class="centrado_horizontal">
+					<center>
+						<img src='img/logo.png' class="logo_login" />
+					</center>
+				</div>
+
+				<label for="telefono">Teléfono (10 dígitos):</label>
+				<input type="number" data-clear-btn="false" name="telefono" id="telefono" value="" data-theme="a" placeholder="Teléfono" />
+
+				<label for="clave">Contraseña:</label>
+				<input type="password" name="clave" id="clave" value="" data-theme="a" placeholder="Contraseña" />
+
+				<a href="registrate.html" id="inicio_acceder" data-transition="pop" style="padding-bottom: 15px">¿Aún no tienes cuenta? Regístrate aquí</a><br /><br />
+
+				<a href="#" id="inicio_login" id="inicio_login" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Acceder</a>
+				<div align="right">
+					<a href="#" id="olvide.html" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="">Olvidé mi contraseña</a>
+				</div>
+
+			</div>
+		</div><!-- /page -->
+
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>
+<script>
+$(function() {
+    $('.ui-content').css({
+        'position' : 'absolute',
+        'top' : '45%',
+        'margin-top' : -$('.ui-content').outerHeight()/2
+    });
+});
+</script>

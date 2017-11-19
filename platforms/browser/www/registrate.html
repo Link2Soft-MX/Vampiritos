@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Vampiritos</title>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    </head>
+    <body>
+		<div data-role="page" id="principal" data-theme="b">
+			<div data-role="header">
+				<a href="javascript:history.back(1)" data-icon="arrow-l">Regresar</a>
+				<h1>Edit Contact</h1>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="centrado_horizontal">
+					<center>
+						<img src='img/logo.png' class="logo_login" />
+					</center>
+				</div>
+
+				<label for="nombre">Nombre:</label>
+				<input type="text" data-clear-btn="false" name="nombre" id="nombre" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" data-theme="a"/>
+
+				<label for="telefono">Teléfono:</label>
+				<input type="number" data-clear-btn="false" name="telefono" id="telefono" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" data-theme="a"/>
+
+				<label for="nombre">Correo:</label>
+				<input type="text" data-clear-btn="false" name="correo" id="correo" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" data-theme="a"/>
+
+				<label for="nacimiento_d">Fecha de nacimiento:</label>
+				<div class="ui-controlgroup-controls">
+					<select name="nacimiento_d" id="nacimiento_d" data-theme="a">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">31</option>
+						<option value="31">31</option>
+					</select>
+					<select name="nacimiento_m" id="nacimiento_m" data-theme="a">
+						<option value="1">Enero</option>
+						<option value="2">Febrero</option>
+						<option value="3">Marzo</option>
+						<option value="4">Abril</option>
+						<option value="5">Mayo</option>
+						<option value="6">Junio</option>
+						<option value="7">Julio</option>
+						<option value="8">Agosto</option>
+						<option value="9">Septiembre</option>
+						<option value="10">Octubre</option>
+						<option value="11">Noviembre</option>
+						<option value="12">Diciembre</option>
+					</select>
+					<select name="nacimiento_a" id="nacimiento_a" data-theme="a">
+					</select>
+				</div>
+
+				<label for="clave">Contraseña:</label>
+				<input type="password" name="clave" id="clave" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" data-theme="a" />
+
+				<label for="clave2">Confirma tu contraseña:</label>
+				<input type="password" name="clave2" id="clave2" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" data-theme="a" />
+
+				<a href="#" id="registrarme" id="registrarme" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5" data-theme="b">Registrarme</a>
+
+			</div>
+		</div><!-- /page -->
+
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>
+<script>
+	$(function(){
+		var d = new Date();
+		for($i=((d.getFullYear())-17); $i>=((d.getFullYear())-80); $i--)
+			$('#nacimiento_a').append("<option value='"+$i+"'>"+$i+"</option>");
+		$("#nacimiento_a").trigger("change");
+		$('#registrarme').click(function(){
+		    validaForma();
+		});
+	});
+
+function validaForma(){
+    $.ajax({
+        url : "https://sistema.vampiritos.com/pos/ws/prueba/",
+        type : "POST",
+        data : { nombre: $('#nombre').val(), telefono: $('#telefono').val(), correo: $('#correo').val(), nacimiento_d: $('#nacimiento_d').val() },
+        success : function( res ){
+            alert(res);
+        }
+    });
+}
+</script>

@@ -1,0 +1,9 @@
+.fondo_negro{
+	background-color: #000;
+}
+.logo_login{
+	max-width: 90%;
+	margin-bottom: 35px;
+}
+[data-role=page]{height: 100% !important; position:relative !important;}
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;} 
